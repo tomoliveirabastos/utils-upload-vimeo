@@ -1,0 +1,17 @@
+#! /usr/bin/php
+<?php
+require "vendor/autoload.php";
+
+use App\UploadVimeo;
+use App\Variable;
+
+$variable = new Variable(__DIR__);
+
+$upload = new UploadVimeo($variable);
+
+echo "start upload... \r\n";
+
+$filePath = $argv[1] ?? null;
+$fileName = $argv[2] ?? null;
+
+$upload->upload($filePath, $fileName);
